@@ -22,7 +22,10 @@ public class AttributesProvider implements XmlAttributeDescriptorsProvider {
             if (name.endsWith("." + attr)) {
                 XmlElementDescriptor descriptor = xmlTag.getDescriptor();
                 if (descriptor != null) {
-                    return descriptor.getAttributeDescriptor(name.substring(0, name.length() - attr.length() - 1), xmlTag);
+                    String attrName = name.substring(0, name.length() - attr.length() - 1);
+                    XmlAttributeDescriptor attributeDescriptor = descriptor.getAttributeDescriptor(attrName, xmlTag);
+                    return attributeDescriptor != null ? attributeDescriptor :
+                           descriptor.getAttributeDescriptor("on" + attrName, xmlTag);
                 }
             }
         }
