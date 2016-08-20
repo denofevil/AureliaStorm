@@ -12,4 +12,7 @@
     <extensions defaultExtensionNs="com.intellij">
         <multiHostInjector implementation="com.github.denofevil.aurelia.Injector"/>
     </extensions>
+    <extensions defaultExtensionNs="JavaScript">
+        <frameworkIndexingHandler implementation="com.github.denofevil.aurelia.FrameworkHandler"/>
+    </extensions>
 </idea-plugin>
