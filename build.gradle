@@ -1,0 +1,22 @@
+buildscript {
+  repositories {
+    maven { url 'http://dl.bintray.com/jetbrains/intellij-plugin-service' }
+  }
+}
+
+plugins {
+  id "org.jetbrains.intellij" version "0.1.10"
+}
+
+version="0.1"
+intellij {
+  version 'IU-2016.2.2'
+  pluginName 'AureliaBuild'
+  downloadSources false
+  plugins = ['JavaScriptLanguage']
+
+  publish {
+    username 'dennis.ushakov'
+    password passwordValue
+  }
+}
