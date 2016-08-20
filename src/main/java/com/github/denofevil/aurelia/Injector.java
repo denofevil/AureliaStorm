@@ -29,17 +29,14 @@ public class Injector implements MultiHostInjector {
             PsiElement parent = host.getParent();
             if (parent instanceof XmlAttribute) {
                 String name = ((XmlAttribute)parent).getName();
-                if (name.endsWith(".bind") ||
-                    name.endsWith(".one-way") ||
-                    name.endsWith(".two-way") ||
-                    name.endsWith(".one-time") ||
-                    name.endsWith(".delegate") ||
-                    name.endsWith(".trigger")) {
-                    registrar.startInjecting(JavascriptLanguage.INSTANCE).
-                            addPlace(null, null, (PsiLanguageInjectionHost) host,
-                                    range).
-                            doneInjecting();
-                    return;
+                for (String attr : Aurelia.INJECTABLE) {
+                    if (name.endsWith("." + attr)) {
+                        registrar.startInjecting(JavascriptLanguage.INSTANCE).
+                                addPlace(null, null, (PsiLanguageInjectionHost) host,
+                                        range).
+                                doneInjecting();
+                        return;
+                    }
                 }
             }
         }

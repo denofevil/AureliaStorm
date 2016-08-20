@@ -8,6 +8,8 @@ import com.intellij.psi.search.GlobalSearchScope;
  * @author Dennis.Ushakov
  */
 public class Aurelia {
+    public static String[] INJECTABLE = new String[] {"bind", "one-way", "two-way", "one-time", "delegate", "trigger"};
+
     public static boolean present(Project project) {
         return FilenameIndex.getFilesByName(project, "aurelia-core.js", GlobalSearchScope.allScope(project)).length > 0;
     }
