@@ -15,7 +15,10 @@ import org.jetbrains.annotations.Nullable;
 public class AttributesProvider implements XmlAttributeDescriptorsProvider {
     @Override
     public XmlAttributeDescriptor[] getAttributeDescriptors(XmlTag xmlTag) {
-        return new XmlAttributeDescriptor[] {new AttributeDescriptor(Aurelia.REPEAT_FOR)};
+        return new XmlAttributeDescriptor[] {
+            new AttributeDescriptor(Aurelia.REPEAT_FOR),
+            new AttributeDescriptor(Aurelia.AURELIA_APP),
+        };
     }
 
     @Nullable
@@ -32,7 +35,7 @@ public class AttributesProvider implements XmlAttributeDescriptorsProvider {
                 }
             }
         }
-        if (Aurelia.REPEAT_FOR.equals(name)) {
+        if (Aurelia.REPEAT_FOR.equals(name) || Aurelia.AURELIA_APP.equals(name)) {
             return new AttributeDescriptor(name);
         }
         return null;
