@@ -12,6 +12,9 @@
     <extensions defaultExtensionNs="com.intellij">
         <multiHostInjector implementation="com.github.denofevil.aurelia.Injector"/>
         <xml.attributeDescriptorsProvider implementation="com.github.denofevil.aurelia.AttributesProvider"/>
+        <psi.referenceProvider language="HTML" providerClass="com.github.denofevil.aurelia.ReferenceProvider">
+            <pattern type="xml">xmlAttributeValue("aurelia-app", "data-aurelia-app")</pattern>
+        </psi.referenceProvider>
     </extensions>
     <extensions defaultExtensionNs="JavaScript">
         <frameworkIndexingHandler implementation="com.github.denofevil.aurelia.FrameworkHandler"/>
