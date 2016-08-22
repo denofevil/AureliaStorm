@@ -11,7 +11,7 @@ plugins {
 version="0.1"
 intellij {
   version 'IU-2016.2.2'
-  pluginName 'AureliaBuild'
+  pluginName 'AureliaStorm'
   downloadSources false
   plugins = ['JavaScriptLanguage']
 
