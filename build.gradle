@@ -1,12 +1,21 @@
 buildscript {
+  ext.kotlin_version = '1.0.3'
+
   repositories {
+    mavenCentral()
     maven { url 'http://dl.bintray.com/jetbrains/intellij-plugin-service' }
+  }
+
+  dependencies {
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
   }
 }
 
 plugins {
   id "org.jetbrains.intellij" version "0.1.10"
 }
+
+apply plugin: "kotlin"
 
 version="0.1"
 intellij {
@@ -19,4 +28,12 @@ intellij {
     username 'dennis.ushakov'
     password passwordValue
   }
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
