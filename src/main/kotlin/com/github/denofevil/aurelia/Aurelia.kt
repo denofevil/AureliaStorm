@@ -12,7 +12,16 @@ object Aurelia {
     var REPEAT_FOR = "repeat.for"
     var AURELIA_APP = "aurelia-app"
 
-    fun present(project: Project) = FilenameIndex
-            .getFilesByName(project, "aurelia-core.js", GlobalSearchScope.allScope(project))
-            .isNotEmpty()
+    fun present(project: Project): Boolean {
+        val aureliaSpecificFileNames = listOf(
+                "aurelia-core.js" // project bootstrapped with script tag (contains aurelia-framework and other essential Aurelia modules)
+                // TODO check if project has dependency on aurelia-frameowrk module
+        )
+        for (aureliaSpecificFileName in aureliaSpecificFileNames) {
+            if (FilenameIndex.getFilesByName(project, aureliaSpecificFileName, GlobalSearchScope.allScope(project)).isNotEmpty()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
