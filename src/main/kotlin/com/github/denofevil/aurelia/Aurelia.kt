@@ -14,8 +14,8 @@ object Aurelia {
 
     fun present(project: Project): Boolean {
         val aureliaSpecificFileNames = listOf(
+                "aurelia-framework.js", // Aurelia is included with with module loader (from jspm_packages when using JSPM) or module bundler (from node_modules when using Webpack)
                 "aurelia-core.js" // project bootstrapped with script tag (contains aurelia-framework and other essential Aurelia modules)
-                // TODO check if project has dependency on aurelia-frameowrk module
         )
         for (aureliaSpecificFileName in aureliaSpecificFileNames) {
             if (FilenameIndex.getFilesByName(project, aureliaSpecificFileName, GlobalSearchScope.allScope(project)).isNotEmpty()) {
