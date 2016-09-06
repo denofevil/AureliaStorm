@@ -1,7 +1,7 @@
 <idea-plugin>
     <name>AureliaStorm</name>
     <id>AureliaStorm</id>
-    <idea-version since-build="141.1532.4" />
+    <idea-version since-build="162.1628" />
     <vendor email="dennis.ushakov@jetbrains.com" url="https://github.com/denofevil/AureliaStorm">Dennis Ushakov</vendor>
     <description><![CDATA[
         This plugin brings support for <a href="http://aurelia.io/">Aurelia</a> framework to the IntelliJ platform

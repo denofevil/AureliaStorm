@@ -17,11 +17,12 @@ plugins {
 
 apply plugin: "kotlin"
 
-version="0.1"
+version="0.2"
 intellij {
   version 'IU-2016.2.2'
   pluginName 'AureliaStorm'
   downloadSources false
+  updateSinceUntilBuild false
   plugins = ['JavaScriptLanguage']
 
   publish {
