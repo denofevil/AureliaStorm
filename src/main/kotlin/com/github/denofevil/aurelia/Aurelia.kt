@@ -12,16 +12,14 @@ object Aurelia {
     var REPEAT_FOR = "repeat.for"
     var AURELIA_APP = "aurelia-app"
 
-    fun present(project: Project): Boolean {
-        val aureliaSpecificFileNames = listOf(
-                "aurelia-framework.js", // Aurelia is included with with module loader (from jspm_packages when using JSPM) or module bundler (from node_modules when using Webpack)
-                "aurelia-core.js" // project bootstrapped with script tag (contains aurelia-framework and other essential Aurelia modules)
-        )
-        for (aureliaSpecificFileName in aureliaSpecificFileNames) {
-            if (FilenameIndex.getFilesByName(project, aureliaSpecificFileName, GlobalSearchScope.allScope(project)).isNotEmpty()) {
-                return true;
-            }
-        }
-        return false;
+    val AURELIA_DETECTOR_FILES = listOf(
+            // Aurelia is included with with module loader (from jspm_packages when using JSPM) or module bundler (from node_modules when using Webpack)
+            "aurelia-framework.js",
+            // project bootstrapped with script tag (contains aurelia-framework and other essential Aurelia modules)
+            "aurelia-core.js"
+    )
+
+    fun present(project: Project) = AURELIA_DETECTOR_FILES.any {
+        FilenameIndex.getFilesByName(project, it, GlobalSearchScope.allScope(project)).isNotEmpty()
     }
 }
