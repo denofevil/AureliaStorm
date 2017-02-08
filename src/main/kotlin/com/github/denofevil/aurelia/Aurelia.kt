@@ -8,7 +8,7 @@ import com.intellij.psi.search.GlobalSearchScope
  * @author Dennis.Ushakov
  */
 object Aurelia {
-    var INJECTABLE = arrayOf("bind", "one-way", "two-way", "one-time", "delegate", "trigger")
+    var INJECTABLE = arrayOf("bind", "one-way", "two-way", "one-time", "delegate", "trigger", "call")
     var REPEAT_FOR = "repeat.for"
     var AURELIA_APP = "aurelia-app"
 
