@@ -1,5 +1,5 @@
 buildscript {
-  ext.kotlin_version = '1.0.3'
+  ext.kotlin_version = '1.0.5'
 
   repositories {
     mavenCentral()
@@ -17,9 +17,9 @@ plugins {
 
 apply plugin: "kotlin"
 
-version="0.2"
+version="0.3"
 intellij {
-  version 'IU-2016.2.2'
+  version 'IU-2016.3.4'
   pluginName 'AureliaStorm'
   downloadSources false
   updateSinceUntilBuild false
