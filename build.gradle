@@ -17,7 +17,7 @@ plugins {
 
 apply plugin: "kotlin"
 
-version="0.4"
+version="0.5"
 intellij {
   version 'IU-2016.3.4'
   pluginName 'AureliaStorm'
