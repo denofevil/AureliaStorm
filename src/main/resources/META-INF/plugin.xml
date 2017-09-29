@@ -5,6 +5,14 @@
     <vendor email="dennis.ushakov@jetbrains.com" url="https://github.com/denofevil/AureliaStorm">Dennis Ushakov</vendor>
     <description><![CDATA[
         This plugin brings support for <a href="http://aurelia.io/">Aurelia</a> framework to the IntelliJ platform
+        Features:
+        <ul>
+         <li>Code insight for specific Aurelia attributes (such as <code>*.bind</code> or <code>*.trigger</code>)</li>
+         <li>Syntax highlighting in <code>${}</code> interpolations</li>
+         <li>Controller properties completion and navigation</li>
+        </ul>
+        Either <code>aurelia-framework.js</code>, <code>aurelia-bootstrapper.js</code> or <code>aurelia-core.js</code> must be present in the project sources
+        or attached libraries
     ]]></description>
     <depends>com.intellij.modules.lang</depends>
     <depends>JavaScript</depends>
