@@ -23,6 +23,7 @@
         <psi.referenceProvider language="HTML" providerClass="com.github.denofevil.aurelia.ReferenceProvider">
             <pattern type="xml">xmlAttributeValue("aurelia-app", "data-aurelia-app")</pattern>
         </psi.referenceProvider>
+        <javascript.rename.extension implementation="com.github.denofevil.aurelia.RenameExtension"/>
     </extensions>
     <extensions defaultExtensionNs="JavaScript">
         <frameworkIndexingHandler implementation="com.github.denofevil.aurelia.FrameworkHandler"/>
