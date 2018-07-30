@@ -5,7 +5,7 @@ plugins {
 
 apply plugin: "kotlin"
 
-version="0.6"
+version="0.7"
 intellij {
   version 'IU-2018.2'
   pluginName 'AureliaStorm'
@@ -13,7 +13,7 @@ intellij {
   updateSinceUntilBuild false
   plugins = ['JavaScriptLanguage']
 
-  publish {
+  publishPlugin {
     username 'dennis.ushakov'
     password passwordValue
   }
