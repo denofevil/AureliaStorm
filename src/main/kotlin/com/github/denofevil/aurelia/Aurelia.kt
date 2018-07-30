@@ -1,8 +1,12 @@
 package com.github.denofevil.aurelia
 
 import com.intellij.openapi.project.Project
+import com.intellij.openapi.roots.ProjectRootModificationTracker
+import com.intellij.openapi.vfs.VirtualFileManager
 import com.intellij.psi.search.FilenameIndex
 import com.intellij.psi.search.GlobalSearchScope
+import com.intellij.psi.util.CachedValueProvider
+import com.intellij.psi.util.CachedValuesManager
 
 /**
  * @author Dennis.Ushakov
@@ -21,7 +25,10 @@ object Aurelia {
             "aurelia-core.js"
     )
 
-    fun present(project: Project) = AURELIA_DETECTOR_FILES.any {
-        FilenameIndex.getFilesByName(project, it, GlobalSearchScope.allScope(project)).isNotEmpty()
-    }
+    fun present(project: Project) = CachedValuesManager.getManager(project).getCachedValue(project) {
+        CachedValueProvider.Result.create(
+                AURELIA_DETECTOR_FILES.any {
+                    FilenameIndex.getFilesByName(project, it, GlobalSearchScope.allScope(project)).isNotEmpty()
+                }, VirtualFileManager.VFS_STRUCTURE_MODIFICATIONS, ProjectRootModificationTracker.getInstance(project))
+    }!!
 }
