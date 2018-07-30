@@ -2,12 +2,12 @@ package com.github.denofevil.aurelia
 
 import com.intellij.codeInsight.completion.CompletionUtil
 import com.intellij.lang.javascript.index.FrameworkIndexingHandler
-import com.intellij.lang.javascript.psi.JSNamespaceImpl
 import com.intellij.lang.javascript.psi.JSQualifiedNameImpl
 import com.intellij.lang.javascript.psi.JSReferenceExpression
 import com.intellij.lang.javascript.psi.ecmal4.JSClass
-import com.intellij.lang.javascript.psi.resolve.BaseJSSymbolProcessor
+import com.intellij.lang.javascript.psi.resolve.JSTypeInfo
 import com.intellij.lang.javascript.psi.types.JSContext
+import com.intellij.lang.javascript.psi.types.JSNamedTypeFactory
 import com.intellij.psi.PsiElement
 import com.intellij.psi.impl.source.resolve.FileContextUtil
 import com.intellij.psi.util.PsiTreeUtil
@@ -16,15 +16,15 @@ import com.intellij.psi.util.PsiTreeUtil
  * @author Dennis.Ushakov
  */
 class FrameworkHandler : FrameworkIndexingHandler() {
-    override fun addContextType(info: BaseJSSymbolProcessor.TypeInfo, context: PsiElement) {
+    override fun addContextType(info: JSTypeInfo, context: PsiElement) {
         val controller = findController(context) ?: return
         val namespace = JSQualifiedNameImpl.buildProvidedNamespace(controller)
-        info.addType(JSNamespaceImpl(namespace, JSContext.INSTANCE, true), false)
+        info.addType(JSNamedTypeFactory.createNamespace(namespace, JSContext.INSTANCE, null, true), false)
     }
 
     override fun addContextNames(context: PsiElement, names: MutableList<String>) {
         val controller = findController(context) ?: return
-        names.add(controller.getQualifiedName()!!)
+        names.add(controller.qualifiedName!!)
     }
 
     private fun findController(context: PsiElement): JSClass<*>? {

@@ -30,7 +30,7 @@ class Injector : MultiHostInjector {
             if (parent is XmlAttribute) {
                 val name = parent.name
                 for (attr in Aurelia.INJECTABLE) {
-                    if (name.endsWith("." + attr)) {
+                    if (name.endsWith(".$attr")) {
                         registrar.startInjecting(JavascriptLanguage.INSTANCE)
                                 .addPlace(null, null, host as PsiLanguageInjectionHost, range)
                                 .doneInjecting()

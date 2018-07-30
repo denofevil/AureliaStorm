@@ -23,7 +23,7 @@ class AttributesProvider : XmlAttributeDescriptorsProvider {
                 if (descriptor != null) {
                     val attrName = name.substring(0, name.length - attr.length - 1)
                     val attributeDescriptor = descriptor.getAttributeDescriptor(attrName, xmlTag)
-                    return attributeDescriptor ?: descriptor.getAttributeDescriptor("on" + attrName, xmlTag)
+                    return attributeDescriptor ?: descriptor.getAttributeDescriptor("on$attrName", xmlTag)
                 }
             }
         }

@@ -1,6 +1,6 @@
 package com.github.denofevil.aurelia
 
-import com.intellij.lang.ecmascript6.resolve.ES6PsiUtil
+import com.intellij.lang.ecmascript6.resolve.JSFileReferencesUtil
 import com.intellij.psi.ElementManipulators
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiReference
@@ -20,7 +20,7 @@ class ReferenceProvider : PsiReferenceProvider() {
             if (Aurelia.AURELIA_APP == attrName) {
                 val text = ElementManipulators.getValueText(psiElement)
                 val range = ElementManipulators.getValueTextRange(psiElement)
-                return ES6PsiUtil.createImportExportFromClauseReferences(psiElement, range.startOffset, text, this)
+                return JSFileReferencesUtil.createImportExportFromClauseReferences(psiElement, range.startOffset, text, this)
             }
         }
         return PsiReference.EMPTY_ARRAY

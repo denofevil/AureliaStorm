@@ -1,25 +1,13 @@
-buildscript {
-  ext.kotlin_version = '1.0.5'
-
-  repositories {
-    mavenCentral()
-    maven { url 'http://dl.bintray.com/jetbrains/intellij-plugin-service' }
-  }
-
-  dependencies {
-    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-  }
-}
-
 plugins {
-  id "org.jetbrains.intellij" version "0.1.10"
+  id "org.jetbrains.intellij" version "0.3.5"
+  id "org.jetbrains.kotlin.jvm" version "1.2.51"
 }
 
 apply plugin: "kotlin"
 
 version="0.6"
 intellij {
-  version 'IU-2016.3.4'
+  version 'IU-2018.2'
   pluginName 'AureliaStorm'
   downloadSources false
   updateSinceUntilBuild false
@@ -29,12 +17,4 @@ intellij {
     username 'dennis.ushakov'
     password passwordValue
   }
-}
-
-repositories {
-  mavenCentral()
-}
-
-dependencies {
-  compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
