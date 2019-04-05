@@ -8,6 +8,7 @@ import com.intellij.lang.javascript.psi.ecmal4.JSClass
 import com.intellij.lang.javascript.psi.resolve.JSTypeInfo
 import com.intellij.lang.javascript.psi.types.JSContext
 import com.intellij.lang.javascript.psi.types.JSNamedTypeFactory
+import com.intellij.openapi.util.io.FileUtil
 import com.intellij.psi.PsiElement
 import com.intellij.psi.impl.source.resolve.FileContextUtil
 import com.intellij.psi.util.PsiTreeUtil
@@ -38,8 +39,8 @@ class FrameworkHandler : FrameworkIndexingHandler() {
 
         val directory = hostFile.originalFile.parent ?: return null
 
-        val controllerFile = directory.findFile(hostFile.virtualFile.nameWithoutExtension + ".ts") ?:
-                directory.findFile(hostFile.virtualFile.nameWithoutExtension + ".js")
+        val name = FileUtil.getNameWithoutExtension(hostFile.name)
+        val controllerFile = directory.findFile("$name.ts") ?: directory.findFile("$name.js")
 
         return PsiTreeUtil.findChildOfType<JSClass<*>>(controllerFile, JSClass::class.java)
     }
