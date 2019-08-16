@@ -42,8 +42,16 @@ class Injector : MultiHostInjector {
         val text = ElementManipulators.getValueText(host)
         var start = text.indexOf("\${")
         while (start >= 0) {
-            var end = text.indexOf("}", start)
-            end = if (end >= 0) end else range.length
+            var end = range.length
+            var nested = 0
+            for (i in start + 2 until range.length) {
+                if (text[i] == '{') nested++
+                if (nested == 0 && text[i] == '}') {
+                    end = i
+                    break
+                }
+                if (text[i] == '}') nested--
+            }
             var injectionCandidate = host.findElementAt(start)
             while (injectionCandidate is PsiWhiteSpace) injectionCandidate = injectionCandidate.getNextSibling()
 
