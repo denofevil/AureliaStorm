@@ -1,6 +1,7 @@
 package com.github.denofevil.aurelia
 
 import com.intellij.psi.PsiElement
+import com.intellij.psi.meta.PsiPresentableMetaData
 import com.intellij.psi.xml.XmlTag
 import com.intellij.util.ArrayUtil
 import com.intellij.xml.XmlAttributeDescriptor
@@ -31,7 +32,10 @@ class AttributesProvider : XmlAttributeDescriptorsProvider {
         return if (Aurelia.REPEAT_FOR == name || Aurelia.VIRTUAL_REPEAT_FOR == name || Aurelia.AURELIA_APP == name) AttributeDescriptor(name) else null
     }
 
-    private class AttributeDescriptor(private val name: String) : BasicXmlAttributeDescriptor() {
+    private class AttributeDescriptor(private val name: String) : BasicXmlAttributeDescriptor(), PsiPresentableMetaData {
+        override fun getIcon() = Aurelia.ICON
+
+        override fun getTypeName(): String? = null
 
         override fun init(psiElement: PsiElement) {
         }
