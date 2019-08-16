@@ -14,6 +14,7 @@ import com.intellij.psi.util.CachedValuesManager
 object Aurelia {
     var INJECTABLE = arrayOf("bind", "one-way", "two-way", "one-time", "delegate", "trigger", "call")
     var REPEAT_FOR = "repeat.for"
+    var VIRTUAL_REPEAT_FOR = "virtual-repeat.for"
     var AURELIA_APP = "aurelia-app"
 
     val AURELIA_DETECTOR_FILES = listOf(

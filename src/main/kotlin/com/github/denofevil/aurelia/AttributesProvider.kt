@@ -13,6 +13,7 @@ import com.intellij.xml.impl.BasicXmlAttributeDescriptor
 class AttributesProvider : XmlAttributeDescriptorsProvider {
     override fun getAttributeDescriptors(xmlTag: XmlTag): Array<XmlAttributeDescriptor> = arrayOf(
             AttributeDescriptor(Aurelia.REPEAT_FOR),
+            AttributeDescriptor(Aurelia.VIRTUAL_REPEAT_FOR),
             AttributeDescriptor(Aurelia.AURELIA_APP)
     )
 
@@ -27,7 +28,7 @@ class AttributesProvider : XmlAttributeDescriptorsProvider {
                 }
             }
         }
-        return if (Aurelia.REPEAT_FOR == name || Aurelia.AURELIA_APP == name) AttributeDescriptor(name) else null
+        return if (Aurelia.REPEAT_FOR == name || Aurelia.VIRTUAL_REPEAT_FOR == name || Aurelia.AURELIA_APP == name) AttributeDescriptor(name) else null
     }
 
     private class AttributeDescriptor(private val name: String) : BasicXmlAttributeDescriptor() {
