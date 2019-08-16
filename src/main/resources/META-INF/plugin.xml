@@ -25,6 +25,10 @@
         </psi.referenceProvider>
         <javascript.rename.extension implementation="com.github.denofevil.aurelia.RenameExtension"/>
         <lang.inspectionSuppressor language="JavaScript" implementationClass="com.github.denofevil.aurelia.InspectionSuppressor" order="first"/>
+
+        <directoryProjectGenerator
+                implementation="com.github.denofevil.aurelia.cli.ProjectGenerator"/>  <!-- works in WebStorm and other SmallIDEs -->
+        <projectTemplatesFactory implementation="com.github.denofevil.aurelia.cli.ProjectTemplateFactory"/> <!-- works in IntelliJ IDEA -->
     </extensions>
     <extensions defaultExtensionNs="JavaScript">
         <frameworkIndexingHandler implementation="com.github.denofevil.aurelia.FrameworkHandler"/>
