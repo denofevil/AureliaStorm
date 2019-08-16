@@ -15,15 +15,20 @@ class AttributesProvider : XmlAttributeDescriptorsProvider {
     override fun getAttributeDescriptors(xmlTag: XmlTag): Array<XmlAttributeDescriptor> = arrayOf(
             AttributeDescriptor(Aurelia.REPEAT_FOR),
             AttributeDescriptor(Aurelia.VIRTUAL_REPEAT_FOR),
-            AttributeDescriptor(Aurelia.AURELIA_APP)
+            AttributeDescriptor(Aurelia.AURELIA_APP),
+            AttributeDescriptor("if.bind"),
+            AttributeDescriptor("show.bind")
     )
 
     override fun getAttributeDescriptor(name: String, xmlTag: XmlTag): XmlAttributeDescriptor? {
         for (attr in Aurelia.INJECTABLE) {
             if (name.endsWith(".$attr")) {
+                val attrName = name.substring(0, name.length - attr.length - 1)
+                if ("if" == attrName || "show" == attrName) {
+                    return AttributeDescriptor(name)
+                }
                 val descriptor = xmlTag.descriptor
                 if (descriptor != null) {
-                    val attrName = name.substring(0, name.length - attr.length - 1)
                     val attributeDescriptor = descriptor.getAttributeDescriptor(attrName, xmlTag)
                     return attributeDescriptor ?: descriptor.getAttributeDescriptor("on$attrName", xmlTag)
                 }
