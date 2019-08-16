@@ -5,9 +5,9 @@ plugins {
 
 apply plugin: "kotlin"
 
-version="0.9"
+version="0.9.1"
 intellij {
-  version 'IU-2019.1'
+  version 'IU-2019.2'
   pluginName 'AureliaStorm'
   downloadSources false
   updateSinceUntilBuild false
