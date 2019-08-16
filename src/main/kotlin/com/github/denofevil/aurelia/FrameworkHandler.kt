@@ -42,6 +42,6 @@ class FrameworkHandler : FrameworkIndexingHandler() {
         val name = FileUtil.getNameWithoutExtension(hostFile.name)
         val controllerFile = directory.findFile("$name.ts") ?: directory.findFile("$name.js")
 
-        return PsiTreeUtil.findChildOfType<JSClass<*>>(controllerFile, JSClass::class.java)
+        return PsiTreeUtil.findChildOfType(controllerFile, JSClass::class.java)
     }
 }
