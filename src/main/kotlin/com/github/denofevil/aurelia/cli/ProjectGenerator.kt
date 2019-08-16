@@ -37,7 +37,7 @@ class ProjectGenerator : NpmPackageProjectGenerator() {
     }
 
     override fun generatorArgs(project: Project, dir: VirtualFile, settings: Settings): Array<String> {
-        return arrayOf("new", project.name, "--here", "--unattended", "-i npm")
+        return arrayOf("new", project.name, "--here", "--unattended", "-i", "npm")
     }
 
     override fun customizeModule(baseDir: VirtualFile, entry: ContentEntry) {}
