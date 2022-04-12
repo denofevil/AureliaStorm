@@ -28,7 +28,7 @@ class FrameworkHandler : FrameworkIndexingHandler() {
         names.add(controller.qualifiedName!!)
     }
 
-    private fun findController(context: PsiElement): JSClass<*>? {
+    private fun findController(context: PsiElement): JSClass? {
         if (context !is JSReferenceExpression || context.qualifier != null) {
             return null
         }
