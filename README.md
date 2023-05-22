@@ -7,6 +7,7 @@ Features:
 * Syntax highlighting in `${}` interpolations
 * Controller properties completion and navigation
 * New project generation via aurelia-cli
+* Supports Aurelia 1 and 2
 
 Either `aurelia` (v2), or `aurelia-cli` (v1) must be present in the project npm dependencies
 

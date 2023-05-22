@@ -21,6 +21,8 @@ object Aurelia {
     const val REPEAT_FOR = "repeat.for"
     const val VIRTUAL_REPEAT_FOR = "virtual-repeat.for"
     const val AURELIA_APP = "aurelia-app"
+    const val CASE = "case"
+    const val REF = "ref"
 
     fun present(project: Project) = CachedValuesManager.getManager(project).getCachedValue(project) {
         val aureliaLoaded = hasDependency(project)
