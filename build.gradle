@@ -13,9 +13,9 @@ intellij {
   plugins = ['JavaScript']
 }
 
-version '1.0.231'
+version '1.0.232'
 
 patchPluginXml {
   sinceBuild = "231.0"
-  untilBuild = "231.*"
+  untilBuild = "233.*"
 }
