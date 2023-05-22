@@ -8,5 +8,11 @@ Features:
 * Controller properties completion and navigation
 * New project generation via aurelia-cli
 
-Either `aurelia-framework.js`, `aurelia-bootstrapper.js` or `aurelia-core.js` must be present in the project sources
-or attached libraries
+Either `aurelia` (v2), or `aurelia-cli` (v1) must be present in the project npm dependencies
+
+## Contributing
+### Prerequisites
+* JDK version 17 or later suggested
+
+### Running the plugin
+In order to test your plugin use the [runIde](https://plugins.jetbrains.com/docs/intellij/configuring-plugin-project.html#run-ide-task) Gradle. This will launch an instance of intellij with the plugin loaded.
