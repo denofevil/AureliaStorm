@@ -1,18 +1,19 @@
 <idea-plugin>
-    <name>AureliaStorm</name>
-    <id>AureliaStorm</id>
+    <name>AureliaStorm Community</name>
+    <id>AureliaStormCommunity</id>
     <idea-version since-build="191.3684" until-build="201.0000"/>
-    <vendor email="dennis.ushakov@jetbrains.com" url="https://github.com/denofevil/AureliaStorm">Dennis Ushakov</vendor>
+    <vendor email="rustaddicts@gmail.com" url="https://github.com/CollinHerber/AureliaStorm">Collin Herber</vendor>
     <description><![CDATA[
+        This plugin is a fork from <a href="https://plugins.jetbrains.com/plugin/8567-aureliastorm">AureliaStorm</a>
         This plugin brings support for <a href="https://aurelia.io/">Aurelia</a> framework to the IntelliJ platform
         Features:
         <ul>
+         <li>Supports Aurelia 1 and 2</li>
          <li>Code insight for specific Aurelia attributes (such as <code>*.bind</code> or <code>*.trigger</code>)</li>
          <li>Syntax highlighting in <code>${}</code> interpolations</li>
          <li>Controller properties completion and navigation</li>
         </ul>
-        Either <code>aurelia-framework.js</code>, <code>aurelia-bootstrapper.js</code> or <code>aurelia-core.js</code> must be present in the project sources
-        or attached libraries
+        Either aurelia or aurelia-cli must be included as a dependency in package.json.
     ]]></description>
     <depends>com.intellij.modules.lang</depends>
     <depends>JavaScript</depends>
@@ -24,11 +25,14 @@
             <pattern type="xml">xmlAttributeValue("aurelia-app", "data-aurelia-app")</pattern>
         </psi.referenceProvider>
         <javascript.rename.extension implementation="com.github.denofevil.aurelia.RenameExtension"/>
-        <lang.inspectionSuppressor language="JavaScript" implementationClass="com.github.denofevil.aurelia.InspectionSuppressor" order="first"/>
+        <lang.inspectionSuppressor language="JavaScript"
+                                   implementationClass="com.github.denofevil.aurelia.InspectionSuppressor"
+                                   order="first"/>
 
         <directoryProjectGenerator
                 implementation="com.github.denofevil.aurelia.cli.ProjectGenerator"/>  <!-- works in WebStorm and other SmallIDEs -->
-        <projectTemplatesFactory implementation="com.github.denofevil.aurelia.cli.ProjectTemplateFactory"/> <!-- works in IntelliJ IDEA -->
+        <projectTemplatesFactory
+                implementation="com.github.denofevil.aurelia.cli.ProjectTemplateFactory"/> <!-- works in IntelliJ IDEA -->
     </extensions>
     <extensions defaultExtensionNs="JavaScript">
         <frameworkIndexingHandler implementation="com.github.denofevil.aurelia.FrameworkHandler"/>
