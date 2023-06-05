@@ -8,5 +8,4 @@ Features:
 * Controller properties completion and navigation
 * New project generation via aurelia-cli
 
-Either `aurelia-framework.js`, `aurelia-bootstrapper.js` or `aurelia-core.js` must be present in the project sources
-or attached libraries
+Either aurelia or aurelia-cli must be included as a dependency in package.json.
