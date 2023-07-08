@@ -8,12 +8,12 @@ repositories {
 }
 
 intellij {
-  pluginName = 'AureliaStorm'
+  pluginName = 'AureliaStorm Community'
   version = 'IU-LATEST-EAP-SNAPSHOT'
   plugins = ['JavaScript']
 }
 
-version '1.0.232'
+version '1.1.2'
 
 patchPluginXml {
   sinceBuild = "231.0"
