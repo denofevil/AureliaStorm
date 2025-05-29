@@ -22,13 +22,12 @@ class ProjectGenerator : NpmPackageProjectGenerator() {
 
     override fun packageName() = "aurelia-cli"
 
-    override fun getDescription() = "Create a new <a href='https://aurelia.io'>Aurelia</a> project using <a href='https://aurelia.io/docs/cli/'>Aurelia CLI</a>."
+    override fun getDescription() =
+        "Create a new <a href='https://aurelia.io'>Aurelia</a> project using <a href='https://aurelia.io/docs/cli/'>Aurelia CLI</a>."
 
     override fun getIcon(): Icon {
         return Aurelia.ICON
     }
-
-    override fun customizeModule(baseDir: VirtualFile, entry: ContentEntry?) {}
 
     override fun executable(pkg: NodePackage): String {
         return pkg.systemDependentPath + File.separator + "bin" + File.separator + "aurelia-cli.js"
@@ -42,6 +41,7 @@ class ProjectGenerator : NpmPackageProjectGenerator() {
         return arrayOf("new", project.name, "--here", "--unattended", "-i", "npm")
     }
 
+    override fun customizeModule(baseDir: VirtualFile, entry: ContentEntry?) {}
     override fun filters(project: Project, baseDir: VirtualFile): Array<Filter> = emptyArray()
     override fun generatorArgs(project: Project, baseDir: VirtualFile): Array<String> = emptyArray()
 }

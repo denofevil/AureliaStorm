@@ -1,51 +1,9 @@
 # AureliaStorm Community Changelog
 
-## [Unreleased]
+## [2.0.0] - 2025-05-29
 
-### Changed
-
-- Combining plugins AureliaStorm Re and AureliaStorm Community
-- Injection now enables as a default
-
-## [2.3.1] - 2025-05-26
-
-### Changed
-
-- Description has now a gif showing some features
-- Lifecycle method detection for all exported js classes
-
-## [2.3.0] - 2025-05-12
-
-### Added
-
-- Hook support for components (eg. `attached`,`detached` functions)
-- Change callback detection (only works for `propertyChanged` methods)
-
-## [2.2.0]
-
-### Added
-
-- Proper `repeat.for` detection and reference resolving
-- Ignoring binding behaviors and value converts for code injection
-- Suppressing of missing promise for aurelia js injected code
-- `$this`, `$parent`, `$index`, `$event` support for code injections
-- GoTo Declaration/definition (Default Alt+Ctrl+Shift+O)
-- Custom element completion (ctrl+space)
-- Property and custom attribute completion (ctrl+space)
-
-## [2.1.0]
-
-### Added
-
-- Support for 251
-
-## [2.0.1]
-
-### Fixed
-
-- Reference detection getting called for files outside of aurelia
-
-## [2.0.0]
+A huge thank you to the efforts done by Readock on Github and the work done to https://plugins.jetbrains.com/plugin/27000-aureliastorm-re
+This release is a combination of the work done by Readock and the community contributions to AureliaStorm.
 
 ### Added
 
@@ -58,6 +16,33 @@
 - Require and import tag support
 - Custom element bindable property recognition (by @bindable)
 - Suppress <template> and <require> element warnings
+- Proper `repeat.for` detection and reference resolving
+- Ignoring binding behaviors and value converts for code injection
+- Suppressing of missing promise for aurelia js injected code
+- `$this`, `$parent`, `$index`, `$event` support for code injections
+- GoTo Declaration/definition (Default Alt+Ctrl+Shift+O)
+- Custom element completion (ctrl+space)
+- Property and custom attribute completion (ctrl+space)
+- Description has now a gif showing some features
+- Lifecycle method detection for all exported js classes
+- Injection now enables as a default
+
+### Fixed
+
+- Reference detection getting called for files outside of aurelia
+
+## [1.4.0] - 4/16/2025
+
+- Update kotlin JVM plugin 1.x -> 2.x,
+- Add in support for else custom attribute,
+- Minimum IDE version updated from 2023.2 -> 2024.2 - This was causing the previous version not to upload due to the grade v2 update which is only supported in 2024.2 and beyond.,
+- Adds support for 2025.1
+
+## [1.3.3] - 4/9/2025
+- Now uses the PackageJsonData class from com.intellij to determine dependencies which is much more performant than a direct PSI,
+- Updates kotlin version,
+- Updates to Gradle v2 version for intellij,
+- Tons of prep work for the 2025.1 Release
 
 ## [1.2.1]
 
